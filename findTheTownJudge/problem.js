@@ -19,6 +19,8 @@ var findJudge = function(N, trust) {
   for (const tuple of trust) {
       if (!trustTracker[tuple[0]]) {
           trustTracker[tuple[0]] = {amIJudge: false, whoTrustsMe: []};
+      } else if (trustTracker[tuple[0]] ) {
+        trustTracker[tuple[0]].amIJudge = false;
       }
       if (!trustTracker[tuple[1]]) {
           trustTracker[tuple[1]] = {amIJudge: true, whoTrustsMe: [tuple[0]]};
@@ -27,7 +29,7 @@ var findJudge = function(N, trust) {
       }
   }
   for (const person in trustTracker) {
-      if (trustTracker[person].amIJudge) {
+      if (trustTracker[person].amIJudge && trustTracker[person].whoTrustsMe.length === N - 1) {
           return parseInt(person);
       }
   }
