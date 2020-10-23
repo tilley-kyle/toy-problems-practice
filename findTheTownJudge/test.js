@@ -16,3 +16,7 @@ it('should find the judge', () => {
 it('should find the judge', () => {
   expect(findJudge(4, [[1,3],[1,4],[2,3],[2,4],[4,3]])).to.equal(3);
 });
+
+it('should find judge to be 1 if N === 1 and trust == []', () => {
+  expect(findJudge(1, [])).to.equal(1);
+});

@@ -15,6 +15,7 @@ If the town judge exists and can be identified, return the label of the town jud
 //edge: more than one judge? somebody trusts more than one person
 
 var findJudge = function(N, trust) {
+  if (trust.length === 0 && N === 1) return 1;
   const trustTracker = {};
   for (const tuple of trust) {
       if (!trustTracker[tuple[0]]) {
