@@ -1,0 +1,11 @@
+{
+  "name": "toy-problems-practice",
+  "version": "1.0.0",
+  "description": "This repo is for me to store and practice toy problems. I will be sourcing most problems from LeetCode. I will also be importing Mocha to practice making my own tests for them\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kyle Tilley",
+  "license": "ISC"
+}
