@@ -22,3 +22,5 @@ var findRelativeRanks = function(nums) {
   const sortedNums = nums.sort((a,b) => a - b);
   console.log(sortedNums);
 };
+
+module.exports = findRelativeRanks;
