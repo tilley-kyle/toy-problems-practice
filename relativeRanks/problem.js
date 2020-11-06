@@ -19,8 +19,8 @@ var findRelativeRanks = function(nums) {
   //iterate through nums arr
       //if index of nums arr in sorted array is top three ouput that
   //return thrid array
-  const sortedNums = nums.sort((a,b) => a - b);
-  console.log(sortedNums);
+  const sortedNums = nums.sort((a,b) => b - a);
 };
 
+findRelativeRanks([1,5,2]);
 module.exports = findRelativeRanks;
