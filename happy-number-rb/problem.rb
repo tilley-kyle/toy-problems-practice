@@ -19,8 +19,10 @@ Explanation:
 # @param {Integer} n
 # @return {Boolean}
 def is_happy(n)
-  n.to_s!
-  n.split!
-  puts n
+  num = n.to_s
+  num.split('')
+  puts "hi"
 
 end
+
+is_happy(3)
