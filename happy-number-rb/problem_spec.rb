@@ -1,3 +1,5 @@
+# require 'spec_helper'
+
 =begin
 Write an algorithm to determine if a number n is "happy".
 
@@ -27,7 +29,6 @@ Explanation:
 def is_happy(n)
   tracker = {}
   while n != 1 do
-    puts tracker
     n = n.to_s.split('').reduce(0) { |sum, elem| sum += elem.to_i ** 2}
     if n == 1
       return true
@@ -38,4 +39,23 @@ def is_happy(n)
     end
   end
   return true
+end
+
+describe "Happy Number" do
+  it "should return 'true' when input is '1'" do
+    expect(is_happy(1)).to eq(true)
+  end
+  it "should return 'true' when input is '31'" do
+    expect(is_happy(31)).to eq(true)
+  end
+  it "should return 'ture' when input is '19'" do
+    expect(is_happy(19)).to eq(true)
+  end
+
+  it "should return 'false' when input is '0'" do
+    expect(is_happy(0)).to eq(false)
+  end
+  it "should return 'false' when input is '6'" do
+    expect(is_happy(6)).to eq(false)
+  end
 end
