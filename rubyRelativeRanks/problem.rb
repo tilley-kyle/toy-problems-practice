@@ -13,6 +13,26 @@ All the scores of athletes are guaranteed to be unique.
 
 # @param {Integer[]} nums
 # @return {String[]}
-def find_relative_ranks(nums)
 
+# input: arr of numbs
+# output: arr of words
+# constraints: NA
+# edge: NA
+def find_relative_ranks(nums)
+  sortedNums = nums.sort { |a,b| b <=> a}
+  nums.each_with_index do |num, i|
+    if sortedNums.index(num) + 1 == 1
+      nums[i] = "Gold Medal"
+    elsif sortedNums.index(num) + 1 == 2
+      nums[i] = "Silver Medal"
+    elsif sortedNums.index(num) + 1 == 3
+      nums[i] = "Bronze Medal"
+    else
+      nums[i] = (sortedNums.index(num) + 1).to_s
+    end
+  end
+  return nums
 end
+
+puts find_relative_ranks([3,2,1])
+
