@@ -26,15 +26,11 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 #constraints: NA
 #edge: Can't sell stock before you buy. Can only have 1 buy and 1 sell
 def max_profit(prices)
-  # declare a price holding variable and initialize it to 0
-  # iterate through input prices
-    # at each price compare it to the highest price in the rest of the array
-      # if highest price minus price > 0 && greater than price holding variable set it to the difference
-      # if not, move to next price
-  # return price
   maxProfit = 0
   prices.each_with_index do |price, i|
-    max_profit = price - prices.slice(i, prices.length).max unless max_profit > price - prices.slice(i, prices.length).max
+    if prices.slice(i, prices.length - i).max - price > maxProfit
+       maxProfit = prices.slice(i, prices.length).max - price
+    end
   end
-  return max_profit
+  return maxProfit
 end
