@@ -30,5 +30,18 @@ The length of words[i] will be in the range [1, 30].
 #Edge: maybe no words can be built off eachother
 
 def longest_word(words)
+  resultWord = ''
+  words.each_with_index do |currWord,currWordIndex|
+    splitWord = currWord.split('')
+    splitWord.each_with_index do |currSplitWord, splitWordIndex|
+      #if words.index(splitWord[0..splitWordIndex].join('')) != nil && words.index(splitWord[0..splitWordIndex].join('')) != currWordIndex
+        #
+      # end
+    end
 
+  end
+
+  return resultWord
 end
+
+longest_word(["w","wo","wor","worl", "world"])
