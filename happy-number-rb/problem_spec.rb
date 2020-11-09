@@ -28,7 +28,7 @@ Explanation:
 
 def is_happy(n)
   tracker = {}
-  while n != 1 do
+  while n != 1 donhbsaw m
     n = n.to_s.split('').reduce(0) { |sum, elem| sum += elem.to_i ** 2}
     if n == 1
       return true
