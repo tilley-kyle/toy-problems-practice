@@ -32,5 +32,20 @@ Both strings consists only of lowercase characters.
 # @param {String} t
 # @return {Boolean}
 def is_subsequence(s, t)
-  return t.index(s) != nil
+  s = s.split('')
+  t = t.split('')
+  lengthOfT = t.length
+  lastFoundIndex = 0
+  remainingT = t[lastFoundIndex..lengthOfT]
+  for i in s
+    if remainingT.index(i) == nil
+      return false
+    elsif remainingT.index(i)
+      lastFoundIndex = remainingT.index(i)
+      remainingT = remainingT[lastFoundIndex + 1..t.length]
+    end
+  end
+  return true
 end
+
+# puts is_subsequence('aaaaaa', 'bbaaaa')

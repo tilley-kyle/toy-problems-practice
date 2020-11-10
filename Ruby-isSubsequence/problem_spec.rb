@@ -16,4 +16,16 @@ describe "Is Subsequence" do
   it "should return false" do
     expect(is_subsequence('piano', 'ano')).to eq(false)
   end
+
+  it "should return false" do
+    expect(is_subsequence('piano', 'aonip')).to eq(false)
+  end
+
+  it "should return true" do
+    expect(is_subsequence('abc', 'a1b1c1')).to eq(true)
+  end
+
+  it "should return false" do
+    expect(is_subsequence('aaaaaa', 'bbaaaa')).to eq(false)
+  end
 end
