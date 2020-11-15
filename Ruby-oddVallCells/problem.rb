@@ -43,24 +43,28 @@ def odd_cells(n, m, indices)
   oddCounter = 0
   matrix = Array.new(n) { Array.new(m, 0) }
   indices.each do |tuple|
-    puts "tuple: #{tuple}"
     row = tuple[0]
     column = tuple[1]
     matrix.each_with_index do |arr, rowIndex|
       arr.each_with_index do |element, colIndex|
-        if rowIndex == row && colIndex == column
+        if rowIndex == row
           matrix[rowIndex][colIndex] += 1
-          if matrix[rowIndex][colIndex].even?
-            oddCounter -= 1 unless oddCounter == 0
+          if matrix[rowIndex][colIndex].odd?
+            oddCounter += 1
           else
-            matrix[rowIndex][colIndex] += 1
+            oddCounter -= 1 unless oddCounter == 0
+          end
+        end
+        if colIndex == column
+          matrix[rowIndex][colIndex] += 1
+          if matrix[rowIndex][colIndex].odd?
+            oddCounter += 1
+          else
+            oddCounter -= 1 unless oddCounter == 0
           end
         end
       end
     end
   end
-  puts "result matrix: #{matrix}"
   return oddCounter
 end
-
-odd_cells(2,3,[[0,1],[1,1]])
