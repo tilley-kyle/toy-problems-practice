@@ -48,5 +48,11 @@ The integers in pieces are distinct (i.e., If we flatten pieces in a 1D array, a
 # constraints: listed above
 # edge: empty array
 def can_form_array(arr, pieces)
-
+  arr = arr.join
+  pieces.each do |piece|
+    if arr.index(piece.join) == nil
+      return false
+    end
+  end
+  return true
 end
