@@ -48,11 +48,22 @@ The integers in pieces are distinct (i.e., If we flatten pieces in a 1D array, a
 # constraints: listed above
 # edge: empty array
 def can_form_array(arr, pieces)
-  arr = arr.join
   pieces.each do |piece|
-    if arr.index(piece.join) == nil
-      return false
+    currIndex = -1
+    piece.each_with_index do |element, index|
+      temp = arr.index(element)
+      if temp != nil && currIndex == -1
+        currIndex = temp
+      elsif temp != nil && currIndex > -1 && temp == currIndex + 1
+        currIndex = temp
+      elsif temp != nil && currIndex > -1 && temp != currIndex + 1
+        return false
+      elsif temp == nil
+        return false
+      end
     end
   end
   return true
 end
+
+puts can_form_array([15,88],[[88],[15]])
